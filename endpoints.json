@@ -1,0 +1,1023 @@
+{
+  "schemaVersion": 1,
+  "platform": "youtube",
+  "platformName": "YouTube",
+  "baseUrl": "https://api.socq.ai",
+  "creditUsd": 0.005,
+  "endpoints": [
+    {
+      "publicId": "youtube/channel-videos",
+      "name": "YouTube Channel Videos API",
+      "description": "Collect normalized regular-video records from one or more public YouTube channel URLs, excluding Shorts and live streams.",
+      "method": "POST",
+      "path": "/v1/youtube/channel-videos",
+      "payload": "payloads/channel-videos.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/channel-videos",
+      "landingUrl": "https://socq.ai/apis/youtube/channel-videos",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/comments",
+      "name": "YouTube Comments API",
+      "description": "Collect normalized publicly visible YouTube comments, author context, reply references, and engagement from video URLs.",
+      "method": "POST",
+      "path": "/v1/youtube/comments",
+      "payload": "payloads/comments.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/comments",
+      "landingUrl": "https://socq.ai/apis/youtube/comments",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "sort_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/transcripts",
+      "name": "YouTube Transcripts API",
+      "description": "Retrieve an available plain-text transcript for each public YouTube video URL, with an optional preferred BCP-47 language.",
+      "method": "POST",
+      "path": "/v1/youtube/transcripts",
+      "payload": "payloads/transcripts.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/transcripts",
+      "landingUrl": "https://socq.ai/apis/youtube/transcripts",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "string",
+            "minLength": 1
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/channels",
+      "name": "YouTube Channels API",
+      "description": "Retrieve normalized public YouTube channel profiles and visible statistics from one or more channel URLs.",
+      "method": "POST",
+      "path": "/v1/youtube/channels",
+      "payload": "payloads/channels.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.26 credits ($0.0013) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.26,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/channels",
+      "landingUrl": "https://socq.ai/apis/youtube/channels",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/videos",
+      "name": "YouTube Videos API",
+      "description": "Retrieve normalized metadata and visible engagement for known public YouTube video or Short URLs.",
+      "method": "POST",
+      "path": "/v1/youtube/videos",
+      "payload": "payloads/videos.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 1,
+        "estimateInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/videos",
+      "landingUrl": "https://socq.ai/apis/youtube/videos",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/shorts",
+      "name": "YouTube Shorts API",
+      "description": "Collect normalized public Shorts from one or more YouTube channel URLs, excluding regular videos and live streams.",
+      "method": "POST",
+      "path": "/v1/youtube/shorts",
+      "payload": "payloads/shorts.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/shorts",
+      "landingUrl": "https://socq.ai/apis/youtube/shorts",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/search",
+      "name": "YouTube Search API",
+      "description": "Search public YouTube videos by query and return normalized video records with supported sort, date, duration, and caption filters.",
+      "method": "POST",
+      "path": "/v1/youtube/search",
+      "payload": "payloads/search.json",
+      "launchedAt": "2026-07-16",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/search",
+      "landingUrl": "https://socq.ai/apis/youtube/search",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "duration": {
+            "type": "string",
+            "minLength": 1
+          },
+          "has_captions": {
+            "type": "boolean"
+          },
+          "published_within": {
+            "type": "string",
+            "minLength": 1
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Search query."
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2000
+          },
+          "sort_by": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/channel-live-videos",
+      "name": "YouTube Channel Live Videos API",
+      "description": "Collect normalized public broadcast records exposed on one or more YouTube channel live surfaces.",
+      "method": "POST",
+      "path": "/v1/youtube/channel-live-videos",
+      "payload": "payloads/channel-live-videos.json",
+      "launchedAt": "2026-07-25",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/channel-live-videos",
+      "landingUrl": "https://socq.ai/apis/youtube/channel-live-videos",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/comment-replies",
+      "name": "YouTube Comment Replies API",
+      "description": "Collect public YouTube replies from a stable video URL and parent comment ID, including text, authors, engagement, timestamps, and thread context.",
+      "method": "POST",
+      "path": "/v1/youtube/comment-replies",
+      "payload": "payloads/comment-replies.json",
+      "launchedAt": "2026-07-26",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/comment-replies",
+      "landingUrl": "https://socq.ai/apis/youtube/comment-replies",
+      "required": [],
+      "requiredAnyOf": [
+        [
+          "comment_id",
+          "url"
+        ],
+        [
+          "continuation_token"
+        ]
+      ],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "comment_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public comment identifier."
+          },
+          "continuation_token": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The token used to continue a YouTube reply collection."
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "A public content or product URL."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          {
+            "required": [
+              "comment_id",
+              "url"
+            ]
+          },
+          {
+            "required": [
+              "continuation_token"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/community-posts",
+      "name": "YouTube Community Posts API",
+      "description": "Collect public YouTube Community posts from channel URLs, returning post text, channel identity, timestamps, image references, and source context as normalized records.",
+      "method": "POST",
+      "path": "/v1/youtube/community-posts",
+      "payload": "payloads/community-posts.json",
+      "launchedAt": "2026-07-26",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/community-posts",
+      "landingUrl": "https://socq.ai/apis/youtube/community-posts",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/hashtag-search",
+      "name": "YouTube Hashtag Search API",
+      "description": "Find public YouTube videos from one or more hashtag feeds and return normalized video, channel, media, engagement, and source-hashtag fields.",
+      "method": "POST",
+      "path": "/v1/youtube/hashtag-search",
+      "payload": "payloads/hashtag-search.json",
+      "launchedAt": "2026-07-26",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "hashtags",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/hashtag-search",
+      "landingUrl": "https://socq.ai/apis/youtube/hashtag-search",
+      "required": [
+        "hashtags"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "content_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hashtags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Hashtags with or without the # prefix."
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 20,
+            "maximum": 2000,
+            "default": 100
+          }
+        },
+        "required": [
+          "hashtags"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/playlist-videos",
+      "name": "YouTube Playlist Videos API",
+      "description": "Collect normalized videos from public YouTube playlist URLs or IDs, returning titles, channel context, thumbnails, duration, and playlist provenance per record.",
+      "method": "POST",
+      "path": "/v1/youtube/playlist-videos",
+      "payload": "payloads/playlist-videos.json",
+      "launchedAt": "2026-07-27",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 100,
+        "estimateResultCountPerInputField": "urls",
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/playlist-videos",
+      "landingUrl": "https://socq.ai/apis/youtube/playlist-videos",
+      "required": [
+        "urls"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "results_limit": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 2000
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "description": "Public profile or content URLs."
+          }
+        },
+        "required": [
+          "urls"
+        ]
+      }
+    },
+    {
+      "publicId": "youtube/trending-shorts",
+      "name": "YouTube Trending Shorts API",
+      "description": "Sample the Shorts trending on YouTube right now, with titles, channels, views, likes, comments, duration, and publish times; each run draws a fresh set.",
+      "method": "POST",
+      "path": "/v1/youtube/trending-shorts",
+      "payload": "payloads/trending-shorts.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 48,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/trending-shorts",
+      "landingUrl": "https://socq.ai/apis/youtube/trending-shorts",
+      "required": [],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 48
+          }
+        },
+        "required": [],
+        "description": "Every field is optional. Returns Shorts trending on YouTube right now; each run draws a fresh set. results_limit defaults to 48 and accepts 1 to 200."
+      }
+    },
+    {
+      "publicId": "youtube/community-post",
+      "name": "YouTube Community Post API",
+      "description": "Read one YouTube community post from its link, returning the full text, every attached image, the like count, and the posting channel.",
+      "method": "POST",
+      "path": "/v1/youtube/community-post",
+      "payload": "payloads/community-post.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.5 credits ($0.0025) per call",
+      "billing": {
+        "baseCredits": 0.5,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/community-post",
+      "landingUrl": "https://socq.ai/apis/youtube/community-post",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "YouTube community post URL, such as https://www.youtube.com/post/Ugkx..."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "url is required: the link of one community post."
+      }
+    },
+    {
+      "publicId": "youtube/community-post-comments",
+      "name": "YouTube Community Post Comments API",
+      "description": "Collect the comments under a YouTube community post from its link, with commenter channels, like counts, and reply counts.",
+      "method": "POST",
+      "path": "/v1/youtube/community-post-comments",
+      "payload": "payloads/community-post-comments.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.3 credits ($0.0015) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.3,
+        "estimateResultCount": 100,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/community-post-comments",
+      "landingUrl": "https://socq.ai/apis/youtube/community-post-comments",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "YouTube community post URL, such as https://www.youtube.com/post/Ugkx..."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "url is required: the link of the community post. results_limit defaults to 100 and accepts 1 to 1000."
+      }
+    },
+    {
+      "publicId": "youtube/related-videos",
+      "name": "YouTube Related Videos API",
+      "description": "List the videos YouTube recommends next to a video URL, with titles, channels, view counts, and thumbnails for each recommendation.",
+      "method": "POST",
+      "path": "/v1/youtube/related-videos",
+      "payload": "payloads/related-videos.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.5 credits ($0.0025) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.5,
+        "estimateResultCount": 20,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/related-videos",
+      "landingUrl": "https://socq.ai/apis/youtube/related-videos",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "YouTube video or Shorts URL, such as https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "url is required. Returns the videos YouTube recommends next to that video, usually about 20."
+      }
+    },
+    {
+      "publicId": "youtube/search-channels",
+      "name": "YouTube Channel Search API",
+      "description": "Search YouTube channels by keyword and get channel IDs, names, subscriber counts, avatars, and the description snippet shown in results.",
+      "method": "POST",
+      "path": "/v1/youtube/search-channels",
+      "payload": "payloads/search-channels.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.6 credits ($0.003) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.6,
+        "estimateResultCount": 20,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/search-channels",
+      "landingUrl": "https://socq.ai/apis/youtube/search-channels",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Keywords to search YouTube for.",
+            "maxLength": 100
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 20
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "description": "query is required. Returns channels in YouTube's search order. results_limit defaults to 20 and accepts 1 to 200."
+      }
+    },
+    {
+      "publicId": "youtube/search-shorts",
+      "name": "YouTube Shorts Search API",
+      "description": "Search YouTube Shorts by keyword and get each Short's link, caption, view count, and vertical thumbnail in YouTube's search order.",
+      "method": "POST",
+      "path": "/v1/youtube/search-shorts",
+      "payload": "payloads/search-shorts.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.6 credits ($0.003) per result",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 0.6,
+        "estimateResultCount": 25,
+        "emptyResultPolicy": "base_only"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/search-shorts",
+      "landingUrl": "https://socq.ai/apis/youtube/search-shorts",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Keywords to search YouTube for.",
+            "maxLength": 100
+          },
+          "results_limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 25
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "description": "query is required. Returns Shorts in YouTube's search order. results_limit defaults to 25 and accepts 1 to 200."
+      }
+    },
+    {
+      "publicId": "youtube/search-suggestions",
+      "name": "YouTube Search Suggestions API",
+      "description": "Get the autocomplete suggestions YouTube's search box offers for a partial query, ranked, for the language and region you choose.",
+      "method": "POST",
+      "path": "/v1/youtube/search-suggestions",
+      "payload": "payloads/search-suggestions.json",
+      "launchedAt": "2026-11-17",
+      "price": "0.5 credits ($0.0025) per call",
+      "billing": {
+        "baseCredits": 0.5,
+        "mode": "fixed"
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/search-suggestions",
+      "landingUrl": "https://socq.ai/apis/youtube/search-suggestions",
+      "required": [
+        "query"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "language": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})?$",
+            "default": "en",
+            "description": "Language code for the suggestions, such as en, es or pt-BR."
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "The partial search text to complete.",
+            "maxLength": 100
+          },
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[A-Za-z]{2}$",
+            "default": "US",
+            "description": "Two-letter country code of the search market, such as US or GB."
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "description": "query is required. language defaults to en and region to US."
+      }
+    },
+    {
+      "publicId": "youtube/channel-email",
+      "name": "YouTube Email Finder API",
+      "description": "Find the public business emails behind a YouTube channel URL, with the pages each address was found on; billed only when an email is found.",
+      "method": "POST",
+      "path": "/v1/youtube/channel-email",
+      "payload": "payloads/channel-email.json",
+      "launchedAt": "2026-11-17",
+      "price": "15 credits ($0.075) per result; maximum 15 credits ($0.075) per call",
+      "billing": {
+        "baseCredits": 0,
+        "mode": "base_plus_result",
+        "resultUnitSize": 1,
+        "resultUnitCredits": 15,
+        "estimateResultCount": 1,
+        "emptyResultPolicy": "base_only",
+        "maxCredits": 15
+      },
+      "docsUrl": "https://docs.socq.ai/api-manual/youtube/channel-email",
+      "landingUrl": "https://socq.ai/apis/youtube/channel-email",
+      "required": [
+        "url"
+      ],
+      "requiredAnyOf": [],
+      "mutuallyExclusive": [],
+      "requestSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "callback_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1,
+            "description": "YouTube channel URL in the @handle or /channel/UC... form."
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "description": "url is required: a channel link in the @handle or /channel/UC... form. Returns the public contact emails found for the channel; credits are charged only when at least one email is found."
+      }
+    }
+  ]
+}

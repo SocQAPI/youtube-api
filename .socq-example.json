@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "2.0.0",
+  "kind": "platform",
+  "platform": "youtube",
+  "endpointCount": 20,
+  "endpoints": [
+    "youtube/channel-videos",
+    "youtube/comments",
+    "youtube/transcripts",
+    "youtube/channels",
+    "youtube/videos",
+    "youtube/shorts",
+    "youtube/search",
+    "youtube/channel-live-videos",
+    "youtube/comment-replies",
+    "youtube/community-posts",
+    "youtube/hashtag-search",
+    "youtube/playlist-videos",
+    "youtube/trending-shorts",
+    "youtube/community-post",
+    "youtube/community-post-comments",
+    "youtube/related-videos",
+    "youtube/search-channels",
+    "youtube/search-shorts",
+    "youtube/search-suggestions",
+    "youtube/channel-email"
+  ],
+  "landingPage": "https://socq.ai/apis/youtube",
+  "docsPage": "https://docs.socq.ai/api-manual/youtube/overview",
+  "generatedFrom": "SocQAPI/socq-example-template"
+}

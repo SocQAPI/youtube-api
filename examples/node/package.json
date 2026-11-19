@@ -1,0 +1,11 @@
+{
+  "name": "socq-youtube-api-node-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node socq.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
